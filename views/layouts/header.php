@@ -262,7 +262,7 @@ use yii\helpers\Url;
                                 <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
                                 <?= Html::a(
                                     'Profile',
-                                    ['/profile/index'],
+                                    ['profile/index'],
                                     ['class' => 'btn btn-default btn-flat']
                                 ) ?>
                             </div>

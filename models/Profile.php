@@ -51,7 +51,7 @@ class Profile extends \yii\db\ActiveRecord
         return [
             [['user_id', 'fullname', 'name'], 'required'],
             [['birthday', 'create_at', 'updated_at'], 'safe'],
-            [['idc', 'st'], 'integer'],
+            [['st'], 'integer'],
             [['user_id', 'id_card', 'fullname', 'img', 'dep', 'address', 'phone'], 'string', 'max' => 255],
             [['name', 'sname', 'bloodtype'], 'string', 'max' => 50],
             [['postcode'], 'string', 'max' => 5],
@@ -77,7 +77,6 @@ class Profile extends \yii\db\ActiveRecord
             'idc' => 'Idc',
             'dep' => 'Dep',
             'address' => 'Address',
-            'postcode' => 'Postcode',
             'phone' => 'Phone',
             'create_at' => 'Create At',
             'updated_at' => 'Updated At',
@@ -100,7 +99,7 @@ class Profile extends \yii\db\ActiveRecord
     public function getDep()
     {
         $model = Profile::findOne(['user_id'=>Yii::$app->user->identity->id]);
-        return $model->dep;
+        return $model->dep ? $model->dep : '' ;
     }
 
     public function getPhone()

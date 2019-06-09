@@ -35,12 +35,11 @@ class ProfileController extends Controller
      */
     public function actionIndex()
     {
-        $sql = 'SELECT * FROM profile';
-        $models = Yii::$app->db2->createCommand($sql)->queryAll();
+        
+        $model = Profile::findOne(['user_id'=>Yii::$app->user->identity->id]);
                 
         return $this->render('index', [
-            'sql' => $sql,
-            'models' => $models
+            'model' => $model
         ]);
     }
 
@@ -90,6 +89,12 @@ class ProfileController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        if(Yii::$app->request->isAjax){
+            return $this->renderAjax('update',[
+                    'model' => $model,                    
+            ]);
+        }
+        
         return $this->render('update', [
             'model' => $model,
         ]);

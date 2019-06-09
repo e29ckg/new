@@ -28,17 +28,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'bloodtype')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'idc')->textInput() ?>
-
     <?= $form->field($model, 'dep')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'postcode')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'create_at')->textInput() ?>
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
